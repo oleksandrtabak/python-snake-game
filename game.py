@@ -16,8 +16,16 @@ class Snake:
     pass
 
 class Food:
-    pass
 
+    def __init__(self):
+        x = random.randint(0, (GAME_WIDTH / SPACE_SIZE) - 1) * SPACE_SIZE
+        y = random.randint(0, (GAME_HEIGHT / SPACE_SIZE) - 1) * SPACE_SIZE
+
+        self.coordinates = [x, y]
+
+        canvas.create_oval(x, y, x + SPACE_SIZE, y + SPACE_SIZE, fill=FOOD_COLOR, tag='food')
+
+    
 def next_turn():
     pass
 
@@ -41,7 +49,7 @@ direction = 'down'
 label = Label(window, text='Score: {}'.format(score), font=('consolas', 40))
 label.pack()
 
-scanvas = Canvas(window, bg=BG_COLOR, height=GAME_HEIGHT, width=GAME_WIDTH)
+canvas = Canvas(window, bg=BG_COLOR, height=GAME_HEIGHT, width=GAME_WIDTH)
 canvas.pack()
 
 window.update()
@@ -56,5 +64,13 @@ x = int((screen_width / 2) - (window_width / 2))
 y = int((screen_height / 2) - (window_height / 2))
 
 window.geometry(f'{window_width}x{window_height}+{x}+{y}')
+
+
+# Створення змійки
+snake = Snake()
+
+# Створення їжі
+food = Food()
+
 
 window.mainloop()
