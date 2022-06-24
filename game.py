@@ -1,9 +1,9 @@
-import tkinter
+from tkinter import *
 import random
 
 # Змінні, типу константи. Не будуть змінюватись
-GAME_WIDTH = 700
-GAME_HEIGHT = 700
+GAME_WIDTH = 1000
+GAME_HEIGHT = 1000
 SPEED = 50
 SPACE_SIZE = 50
 BODY_PARTS = 3
@@ -29,3 +29,16 @@ def check_collisions():
 
 def game_over():
     pass
+
+
+window = Tk()
+window.title('Змійка')
+window.resizable(False, False)
+
+score = 0
+direction = 'down'
+
+label = Label(window, text='Score: {}'.format(score), font=('consolas', 40))
+label.pack()
+
+window.mainloop()
