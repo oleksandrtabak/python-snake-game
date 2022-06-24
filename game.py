@@ -2,8 +2,8 @@ from tkinter import *
 import random
 
 # Змінні, типу константи. Не будуть змінюватись
-GAME_WIDTH = 1000
-GAME_HEIGHT = 1000
+GAME_WIDTH = 700
+GAME_HEIGHT = 700
 SPEED = 50
 SPACE_SIZE = 50
 BODY_PARTS = 3
@@ -40,5 +40,21 @@ direction = 'down'
 
 label = Label(window, text='Score: {}'.format(score), font=('consolas', 40))
 label.pack()
+
+scanvas = Canvas(window, bg=BG_COLOR, height=GAME_HEIGHT, width=GAME_WIDTH)
+canvas.pack()
+
+window.update()
+
+# Розташування вікна у центрі 
+window_width = window.winfo_width()
+window_height = window.winfo_height()
+screen_width = window.winfo_screenwidth()
+screen_height = window.winfo_screenheight()
+
+x = int((screen_width / 2) - (window_width / 2))
+y = int((screen_height / 2) - (window_height / 2))
+
+window.geometry(f'{window_width}x{window_height}+{x}+{y}')
 
 window.mainloop()
